@@ -10,32 +10,14 @@ using OpenQA.Selenium;
 
 namespace Guru99ApplicationTest.Tests
 {
-    public class Guru99ApplicationTestcases
+    public class Guru99ApplicationTestcases : BaseTest
     {
-        CommonDriver cmnDriver;
-
-        LoginPage loginPage;
-
-        IWebDriver driver;
-
-        [SetUp]
-        public void Setup()
-        {
-
-            string browserType = "chrome";
-            string baseUrl = "http://demo.guru99.com/v4";
-
-            cmnDriver = new CommonDriver(browserType);
-            cmnDriver.NavigateToFirstUrl(baseUrl);
-
-            driver = cmnDriver.Driver;
-            loginPage = new LoginPage(driver);
-        }
+        
 
         [Test]
         public void VerifyTitleOfThePage()
         {
-            string expectedTitle = "Guru99 Bank Home Page";
+            string expectedTitle = "Guru99 Bank Home Page 1";
 
             string actualTitle = cmnDriver.GetTitle();
 
@@ -51,7 +33,8 @@ namespace Guru99ApplicationTest.Tests
 
             loginPage.Login(userEmail, userPassword);
 
-            string expectedPageUrlAfterLogin = "http://demo.guru99.com/v4/manager/Managerhomepage.php";
+            
+            string expectedPageUrlAfterLogin = $"{BaseUrl}/manager/Managerhomepage.php";
 
             string actualPageUrlAfterLogn = cmnDriver.GetCurrentUrl();
 
@@ -59,10 +42,6 @@ namespace Guru99ApplicationTest.Tests
 
         }
 
-        [TearDown]
-        public void CleanUp()
-        {
-            cmnDriver.CloseAllBrowsers();
-        }
+       
     }
 }
