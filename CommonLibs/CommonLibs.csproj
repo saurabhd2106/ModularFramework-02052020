@@ -52,7 +52,7 @@
     <Compile Include="Contracts\ICommonElement.cs" />
     <Compile Include="Contracts\IDriver.cs" />
     <Compile Include="Demo\DemoCommonLibs.cs" />
-    <Compile Include="Demo\ElementControl.cs" />
+    <Compile Include="Implementations\ElementControl.cs" />
     <Compile Include="Implementations\CommonDriver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

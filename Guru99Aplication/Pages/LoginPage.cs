@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonLibs.Implementations;
 using OpenQA.Selenium;
 
 namespace Guru99Aplication.Pages
@@ -11,8 +12,14 @@ namespace Guru99Aplication.Pages
     {
         private readonly IWebDriver driver;
 
-        public LoginPage(IWebDriver driver) => this.driver = driver;
+        ElementControl elementControl;
 
+        public LoginPage(IWebDriver driver)
+        {
+            this.driver = driver;
+
+            elementControl = new ElementControl();
+        }
 
         private IWebElement username => driver.FindElement(By.Name("uid"));
 
@@ -22,11 +29,11 @@ namespace Guru99Aplication.Pages
 
         public void Login(string userEmailId, string userPassword)
         {
-            username.SendKeys(userEmailId);
+            elementControl.SetText(username, userEmailId);
 
-            password.SendKeys(userPassword);
+            elementControl.SetText(password, userPassword);
 
-            loginButton.Click();
+            elementControl.ClickElement(loginButton);
         }
 
     }

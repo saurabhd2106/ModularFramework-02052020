@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Demo\DemoGuru99Homepage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
   </ItemGroup>
   <ItemGroup>

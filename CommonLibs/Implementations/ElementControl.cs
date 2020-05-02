@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using CommonLibs.Contracts;
 using OpenQA.Selenium;
 
-namespace CommonLibs.Demo
+namespace CommonLibs.Implementations
 {
     public class ElementControl : ICommonElement
     {
