@@ -64,6 +64,9 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -73,8 +76,10 @@
     <Compile Include="Contracts\IAlertControl.cs" />
     <Compile Include="Contracts\ICommonElement.cs" />
     <Compile Include="Contracts\IDriver.cs" />
+    <Compile Include="Contracts\IDropdown.cs" />
     <Compile Include="Demo\DemoCommonLibs.cs" />
     <Compile Include="Implementations\AlertControl.cs" />
+    <Compile Include="Implementations\DropdownControl.cs" />
     <Compile Include="Implementations\ElementControl.cs" />
     <Compile Include="Implementations\CommonDriver.cs" />
   </ItemGroup>

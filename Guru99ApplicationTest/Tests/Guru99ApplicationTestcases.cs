@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using CommonLibs.Implementations;
 using Guru99Aplication.Pages;
@@ -43,7 +44,7 @@ namespace Guru99ApplicationTest.Tests
         }
 
         [Test]
-        public void verifyLogoutTest()
+        public void VerifyLogoutTest()
         {
             string userEmail = "mngr258859";
             string userPassword = "ehYvUby";
@@ -57,6 +58,44 @@ namespace Guru99ApplicationTest.Tests
 
             Assert.That(actualTitle, Is.EqualTo(expectTitle));
 
+        }
+
+        [Test]
+        public void VerifyAddCustomerTest()
+        {
+
+            string userEmail = "mngr258859";
+            string userPassword = "ehYvUby";
+            loginPage.Login(userEmail, userPassword);
+
+            homePage.AddNewCustomer();
+
+            string actualPageUrlAfterAddNewCustomer = cmnDriver.GetCurrentUrl();
+
+            string actualCustomerId = homePage.GetCustomerId();
+
+            string expectedPageUrlAfterAddNewCustomer = $"{BaseUrl}/manager/CustomerRegMsg.php?cid={actualCustomerId}";
+
+            Assert.That(actualPageUrlAfterAddNewCustomer, Is.EqualTo(expectedPageUrlAfterAddNewCustomer));
+            
+           // Compare this actalCustomerId with Id in database.
+
+        }
+
+        [Test]
+        public void VerifyAddNewAccount()
+        {
+            string userEmail = "mngr258859";
+            string userPassword = "ehYvUby";
+            loginPage.Login(userEmail, userPassword);
+
+            homePage.AddNewCustomer();
+
+            Thread.Sleep(3000);
+
+            string customerId = homePage.GetCustomerId();
+
+            homePage.AddNewAccount(customerId, "Current", "5000");
         }
 
 

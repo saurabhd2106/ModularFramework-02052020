@@ -14,10 +14,13 @@ namespace Guru99Aplication.Pages
 
         public AlertControl alertControl;
 
+        public DropdownControl dropdownControl;
+
         public BasePage(IWebDriver driver)
         {
             elementControl = new ElementControl();
             alertControl = new AlertControl(driver);
+            dropdownControl = new DropdownControl();
         }
     }
 }

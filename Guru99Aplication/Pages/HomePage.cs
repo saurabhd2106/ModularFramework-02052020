@@ -13,6 +13,7 @@ namespace Guru99Aplication.Pages
         private readonly IWebDriver driver;
 
         private IWebElement newCutomer => driver.FindElement(By.LinkText("New Customer"));
+        private IWebElement newAccount => driver.FindElement(By.LinkText("New Account"));
 
         private IWebElement customerName => driver.FindElement(By.Name("name"));
         private IWebElement maleGender => driver.FindElement(By.XPath("//input[@value='m']"));
@@ -30,7 +31,18 @@ namespace Guru99Aplication.Pages
 
         private IWebElement submitButton => driver.FindElement(By.XPath("//input[@value='Submit']"));
 
+
+        private IWebElement customerIdTextbox => driver.FindElement(By.Name("cusid"));
+
+        private IWebElement accountTypeDropdown => driver.FindElement(By.Name("selaccount"));
+
+        private IWebElement initialDepositTextbox => driver.FindElement(By.Name("inideposit"));
+
+        private IWebElement submitButtonOnNewAccount => driver.FindElement(By.Name("button2"));
+
         private IWebElement logout => driver.FindElement(By.LinkText("Log out"));
+
+        private IWebElement customerIdInCustomerTable => driver.FindElement(By.XPath("//table[@id='customer']//td[text()='Customer ID']//following-sibling::td"));
 
         public HomePage(IWebDriver driver) : base(driver)
         {
@@ -39,7 +51,48 @@ namespace Guru99Aplication.Pages
 
         public void AddNewCustomer()
         {
+            elementControl.ClickElement(newCutomer);
+
             elementControl.SetText(customerName, "saurabh Dhingra");
+            elementControl.ClickElement(femaleGender);
+
+            elementControl.SetText(dateOfBirth, "06/21/1989");
+            elementControl.SetText(address, "No 12 Gurgaon");
+            elementControl.SetText(city, "Gurgaon");
+            elementControl.SetText(state, "Haryana");
+            elementControl.SetText(pinnunber, "231231");
+            elementControl.SetText(mobileNumber, "42364273");
+
+            DateTime time = DateTime.Now;
+
+            string uniqueEmailId = $"{time.ToString()}acv@abc.com";
+
+            elementControl.SetText(emailId, uniqueEmailId);
+
+            elementControl.SetText(password, "Pro@124");
+
+            elementControl.ClickElement(submitButton);
+        }
+
+        public string GetCustomerId()
+        {
+
+            return elementControl.GetText(customerIdInCustomerTable);
+
+        }
+
+        public void AddNewAccount(string customerId, string accountType, string initialDeposit)
+        {
+            elementControl.ClickElement(newAccount);
+
+            elementControl.SetText(customerIdTextbox, customerId);
+
+            dropdownControl.SelectViaVisibleText(accountTypeDropdown, accountType);
+
+            elementControl.SetText(initialDepositTextbox, initialDeposit);
+
+            elementControl.ClickElement(submitButtonOnNewAccount);
+
 
         }
 

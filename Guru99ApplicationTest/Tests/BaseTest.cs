@@ -39,6 +39,7 @@ namespace Guru99ApplicationTest.Tests
         }
 
         [TearDown]
+        [Ignore("For Testing pupose")]
         public void CleanUp()
         {
             cmnDriver.CloseAllBrowsers();
