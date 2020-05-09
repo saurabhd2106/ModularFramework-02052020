@@ -8,17 +8,16 @@ using OpenQA.Selenium;
 
 namespace Guru99Aplication.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
         private readonly IWebDriver driver;
 
-        ElementControl elementControl;
 
-        public LoginPage(IWebDriver driver)
+        public LoginPage(IWebDriver driver) : base(driver)
         {
             this.driver = driver;
 
-            elementControl = new ElementControl();
+
         }
 
         private IWebElement username => driver.FindElement(By.Name("uid"));

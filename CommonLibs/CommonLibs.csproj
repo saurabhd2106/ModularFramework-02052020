@@ -70,9 +70,11 @@
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAlertControl.cs" />
     <Compile Include="Contracts\ICommonElement.cs" />
     <Compile Include="Contracts\IDriver.cs" />
     <Compile Include="Demo\DemoCommonLibs.cs" />
+    <Compile Include="Implementations\AlertControl.cs" />
     <Compile Include="Implementations\ElementControl.cs" />
     <Compile Include="Implementations\CommonDriver.cs" />
   </ItemGroup>

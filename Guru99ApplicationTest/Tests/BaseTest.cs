@@ -16,6 +16,7 @@ namespace Guru99ApplicationTest.Tests
         public CommonDriver cmnDriver;
 
         public LoginPage loginPage;
+        public HomePage homePage;
 
         IWebDriver driver;
         public string BaseUrl;
@@ -34,6 +35,7 @@ namespace Guru99ApplicationTest.Tests
 
             driver = cmnDriver.Driver;
             loginPage = new LoginPage(driver);
+            homePage = new HomePage(driver);
         }
 
         [TearDown]
