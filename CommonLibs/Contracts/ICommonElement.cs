@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,9 @@ namespace CommonLibs.Contracts
         void ClearText(IWebElement Element);
 
         void ChangeCheckboxStatus(IWebElement Element, bool DesiredState);
+
+        int GetXLocation(IWebElement element);
+
+        int GetYLocation(IWebElement element);
     }
 }

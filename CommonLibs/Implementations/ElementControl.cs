@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,7 +34,9 @@ namespace CommonLibs.Implementations
 
         public string GetText(IWebElement element) => element.Text;
 
+        public int GetXLocation(IWebElement element) => element.Location.X;
 
+        public int GetYLocation(IWebElement element) => element.Location.Y;
         public bool IsElementEnabled(IWebElement element) => element.Enabled;
 
 

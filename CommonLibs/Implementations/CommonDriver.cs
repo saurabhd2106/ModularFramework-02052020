@@ -81,6 +81,8 @@ namespace CommonLibs.Implementations
 
             Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(pageLoadTimeout);
 
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(elementDetectionTimeout);
+
             Driver.Url = url;
         }
 

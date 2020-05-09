@@ -29,20 +29,24 @@ namespace Guru99ApplicationTest.Tests
             BaseUrl = ConfigurationManager.AppSettings["baseUrl"]; ;
 
             cmnDriver = new CommonDriver(browserType);
-            cmnDriver.NavigateToFirstUrl(BaseUrl);
+
+
+            cmnDriver.ElementDetectionTimeout = Int32.Parse(ConfigurationManager.AppSettings["elementDetectionTimeout"]);
 
             cmnDriver.PageLoadTimeout = Int32.Parse(ConfigurationManager.AppSettings["pageLoadTimeout"]);
 
+
+            cmnDriver.NavigateToFirstUrl(BaseUrl);
             driver = cmnDriver.Driver;
             loginPage = new LoginPage(driver);
             homePage = new HomePage(driver);
         }
 
         [TearDown]
-        [Ignore("For Testing pupose")]
+
         public void CleanUp()
         {
-            cmnDriver.CloseAllBrowsers();
+            // cmnDriver.CloseAllBrowsers();
         }
     }
 }

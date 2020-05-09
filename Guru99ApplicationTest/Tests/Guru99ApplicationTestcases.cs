@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CommonLibs.Implementations;
+using CommonLibs.Utils;
 using Guru99Aplication.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -91,7 +92,7 @@ namespace Guru99ApplicationTest.Tests
 
             homePage.AddNewCustomer();
 
-            Thread.Sleep(3000);
+            WaitUtils.WaitForSeconds(3);
 
             string customerId = homePage.GetCustomerId();
 

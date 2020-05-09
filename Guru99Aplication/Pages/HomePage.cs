@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommonLibs.Utils;
 using OpenQA.Selenium;
+
 
 namespace Guru99Aplication.Pages
 {
@@ -12,8 +14,11 @@ namespace Guru99Aplication.Pages
 
         private readonly IWebDriver driver;
 
-        private IWebElement newCutomer => driver.FindElement(By.LinkText("New Customer"));
-        private IWebElement newAccount => driver.FindElement(By.LinkText("New Account"));
+        private By locatorFoNewCustomer => By.LinkText("New Customer");
+        private IWebElement newCutomer => driver.FindElement(locatorFoNewCustomer);
+
+        private By locatorFoNewAccount => By.LinkText("New Account");
+        private IWebElement newAccount => driver.FindElement(locatorFoNewAccount);
 
         private IWebElement customerName => driver.FindElement(By.Name("name"));
         private IWebElement maleGender => driver.FindElement(By.XPath("//input[@value='m']"));
@@ -83,6 +88,15 @@ namespace Guru99Aplication.Pages
 
         public void AddNewAccount(string customerId, string accountType, string initialDeposit)
         {
+
+            int xLocation = elementControl.GetXLocation(newAccount);
+
+            int yLocation = elementControl.GetYLocation(newAccount);
+
+            jsControl.ScrollDown(xLocation, yLocation);
+
+            WaitUtils.WaitTillElementVisible(driver, locatorFoNewAccount, 10);
+
             elementControl.ClickElement(newAccount);
 
             elementControl.SetText(customerIdTextbox, customerId);
