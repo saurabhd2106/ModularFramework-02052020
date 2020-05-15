@@ -7,6 +7,7 @@ using CommonLibs.Contracts;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Remote;
 
 namespace CommonLibs.Implementations
 {
@@ -49,6 +50,15 @@ namespace CommonLibs.Implementations
             else if (browserType.Equals("edge"))
             {
                 Driver = new EdgeDriver();
+            }
+            else if (browserType.Equals("remote-chrome"))
+            {
+                ChromeOptions chromeOptions = new ChromeOptions();
+
+                Uri uri = new Uri("http://192.168.0.2:4444/wd/hub");
+
+                Driver = new RemoteWebDriver(uri, chromeOptions);
+
             }
 
             Driver.Manage().Cookies.DeleteAllCookies();

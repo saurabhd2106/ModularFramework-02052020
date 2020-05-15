@@ -46,7 +46,7 @@ namespace Guru99ApplicationTest.Tests
 
         public void CleanUp()
         {
-            // cmnDriver.CloseAllBrowsers();
+             cmnDriver.CloseAllBrowsers();
         }
     }
 }

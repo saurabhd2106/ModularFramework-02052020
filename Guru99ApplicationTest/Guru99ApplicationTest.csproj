@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="hubConfig.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +84,6 @@
   <ItemGroup>
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\Class1.cs" />
-    <Compile Include="Tests\Guru99ApplicationTestcases.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLibs\CommonLibs.csproj">

@@ -12,6 +12,7 @@ using OpenQA.Selenium;
 
 namespace Guru99ApplicationTest.Tests
 {
+    [Parallelizable(ParallelScope.All)]
     public class Guru99ApplicationTestcases : BaseTest
     {
 
