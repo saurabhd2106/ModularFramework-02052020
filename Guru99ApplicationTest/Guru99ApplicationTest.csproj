@@ -161,12 +161,13 @@
     <Folder Include="Reports\" />
     <Folder Include="Screenshots\" />
     <Folder Include="TestData\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\Class2.cs" />
     <Compile Include="Tests\Guru99ApplicationTestcases.cs" />
+    <Compile Include="Utils\TestDataFromDatabase.cs" />
+    <Compile Include="Utils\TestDataFromExcel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLibs\CommonLibs.csproj">

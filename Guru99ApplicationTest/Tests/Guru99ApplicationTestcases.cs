@@ -8,6 +8,7 @@ using AventStack.ExtentReports;
 using CommonLibs.Implementations;
 using CommonLibs.Utils;
 using Guru99Aplication.Pages;
+using Guru99ApplicationTest.Utils;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
@@ -33,9 +34,7 @@ namespace Guru99ApplicationTest.Tests
         }
 
         [Test]
-        [TestCase("mngr258859", "ehYvUby")]
-        [TestCase("mngr261129", "UmanasA")]
-        [TestCase("mngr261132", "nasUjah")]
+        [TestCaseSource(typeof(TestDataFromDatabase), "VerifyDataFromDatabase")]
         public void VerifyLoginTest(string userEmail, string userPassword)
         {
             ExtentReport.CreateATestcase("TC-001 - Verify Login to the application");

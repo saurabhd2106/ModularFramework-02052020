@@ -20,7 +20,7 @@ namespace CommonLibs.Utils
 
             connection = new MySqlConnection(connectionString);
 
-            Console.Write("Connection Established!");
+           
         }
 
         public bool OpenConnection()
