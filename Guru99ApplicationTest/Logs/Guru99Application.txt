@@ -1,0 +1,4 @@
+INFO - Logging started..
+INFO - Browser Type initialized - chrome
+2020-05-16 16:19:38,717 [NonParallelWorker] INFO  Guru99ApplicationTest.Tests.BaseTest - Logging started..
+2020-05-16 16:19:38,910 [NonParallelWorker] INFO  Guru99ApplicationTest.Tests.BaseTest - Browser Type initialized - chrome

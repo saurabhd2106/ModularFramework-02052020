@@ -8,6 +8,7 @@ using AventStack.ExtentReports;
 using CommonLibs.Implementations;
 using CommonLibs.Utils;
 using Guru99Aplication.Pages;
+using log4net;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
@@ -30,15 +31,21 @@ namespace Guru99ApplicationTest.Tests
         public string currentWorkingDirectory;
         public string executionStartTime;
 
+        ILog log;
+
         [OneTimeSetUp]
         public void PreSetup()
         {
+            log4net.Config.XmlConfigurator.Configure();
+
+            log = log4net.LogManager.GetLogger(typeof(BaseTest));
+
             currentWorkingDirectory = ConfigurationManager.AppSettings["currentWorkingDirectory"];
             executionStartTime = DatetTimeUtils.GetCurrentDateAndTime();
             string reportPath = $"{currentWorkingDirectory}{ConfigurationManager.AppSettings["reportPath"]}/{executionStartTime}/";
             ExtentReport = new ExtentReportUtils(reportPath);
 
-            
+            log.Info("Logging started..");
 
         }
 
@@ -50,6 +57,7 @@ namespace Guru99ApplicationTest.Tests
 
             string browserType = ConfigurationManager.AppSettings["browserType"];
             ExtentReport.AddTestLog(Status.Info ,"Browser Type initialized - " + browserType);
+            log.Info("Browser Type initialized - " + browserType);
 
             BaseUrl = ConfigurationManager.AppSettings["baseUrl"];
             ExtentReport.AddTestLog(Status.Info, "Base URL - " + BaseUrl);
