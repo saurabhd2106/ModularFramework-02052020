@@ -1,8 +1,8 @@
 {
     "_comment": "Configuration for Hub - hubConfig.json",
-    "host": "192.168.0.2",
+    "host": "192.168.1.9",
     "maxSession": 5,
-    "port": 4444,
+    "port": 4545,
     "cleanupCycle": 5000,
     "timeout": 300000,
     "newSessionWaitTimeout": -1,

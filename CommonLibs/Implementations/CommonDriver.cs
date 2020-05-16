@@ -47,6 +47,14 @@ namespace CommonLibs.Implementations
             {
                 Driver = new ChromeDriver();
             }
+            else if (browserType.Equals("chrome-headless"))
+            {
+                ChromeOptions chromeOptions = new ChromeOptions();
+
+                chromeOptions.AddArguments("headless");
+
+                Driver = new ChromeDriver(chromeOptions);
+            }
             else if (browserType.Equals("edge"))
             {
                 Driver = new EdgeDriver();
