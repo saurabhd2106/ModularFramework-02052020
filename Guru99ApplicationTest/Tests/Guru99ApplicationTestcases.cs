@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AventStack.ExtentReports;
 using CommonLibs.Implementations;
 using CommonLibs.Utils;
 using Guru99Aplication.Pages;
@@ -12,7 +13,6 @@ using OpenQA.Selenium;
 
 namespace Guru99ApplicationTest.Tests
 {
-    [Parallelizable(ParallelScope.All)]
     public class Guru99ApplicationTestcases : BaseTest
     {
 
@@ -20,9 +20,13 @@ namespace Guru99ApplicationTest.Tests
         [Test]
         public void VerifyTitleOfThePage()
         {
-            string expectedTitle = "Guru99 Bank Home Page";
+            ExtentReport.CreateATestcase("TC-001 - Verify Title of the page");
 
+            
+            string expectedTitle = "Guru99 Bank Home Page 1";
+            ExtentReport.AddTestLog(Status.Info, "Expected Title "+ expectedTitle);
             string actualTitle = cmnDriver.GetTitle();
+            ExtentReport.AddTestLog(Status.Info, "Actual Title " + actualTitle);
 
             Assert.That(actualTitle, Is.EqualTo(expectedTitle));
 
@@ -31,6 +35,7 @@ namespace Guru99ApplicationTest.Tests
         [Test]
         public void VerifyLoginTest()
         {
+            ExtentReport.CreateATestcase("TC-001 - Verify Login to the application");
             string userEmail = "mngr258859";
             string userPassword = "ehYvUby";
 
@@ -48,6 +53,7 @@ namespace Guru99ApplicationTest.Tests
         [Test]
         public void VerifyLogoutTest()
         {
+            ExtentReport.CreateATestcase("TC-001 - Verify logout from the application");
             string userEmail = "mngr258859";
             string userPassword = "ehYvUby";
             loginPage.Login(userEmail, userPassword);
@@ -65,7 +71,7 @@ namespace Guru99ApplicationTest.Tests
         [Test]
         public void VerifyAddCustomerTest()
         {
-
+            ExtentReport.CreateATestcase("TC-001 - Verify add customer");
             string userEmail = "mngr258859";
             string userPassword = "ehYvUby";
             loginPage.Login(userEmail, userPassword);
@@ -87,6 +93,7 @@ namespace Guru99ApplicationTest.Tests
         [Test]
         public void VerifyAddNewAccount()
         {
+            ExtentReport.CreateATestcase("TC-001 - Verify Add Account");
             string userEmail = "mngr258859";
             string userPassword = "ehYvUby";
             loginPage.Login(userEmail, userPassword);

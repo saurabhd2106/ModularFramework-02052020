@@ -55,9 +55,19 @@ namespace CommonLibs.Implementations
             {
                 ChromeOptions chromeOptions = new ChromeOptions();
 
-                Uri uri = new Uri("http://192.168.0.2:4444/wd/hub");
+                Uri uri = new Uri("http://192.168.1.9:4444/wd/hub");
 
                 Driver = new RemoteWebDriver(uri, chromeOptions);
+
+            }
+
+            else if (browserType.Equals("remote-edge"))
+            {
+                EdgeOptions edgeOptions = new EdgeOptions();
+
+                Uri uri = new Uri("http://192.168.1.9:4444/wd/hub");
+
+                Driver = new RemoteWebDriver(uri, edgeOptions);
 
             }
 
