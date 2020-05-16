@@ -33,11 +33,12 @@ namespace Guru99ApplicationTest.Tests
         }
 
         [Test]
-        public void VerifyLoginTest()
+        [TestCase("mngr258859", "ehYvUby")]
+        [TestCase("mngr261129", "UmanasA")]
+        [TestCase("mngr261132", "nasUjah")]
+        public void VerifyLoginTest(string userEmail, string userPassword)
         {
             ExtentReport.CreateATestcase("TC-001 - Verify Login to the application");
-            string userEmail = "mngr258859";
-            string userPassword = "ehYvUby";
 
             loginPage.Login(userEmail, userPassword);
 

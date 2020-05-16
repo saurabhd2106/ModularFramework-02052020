@@ -28,13 +28,14 @@ namespace Guru99ApplicationTest.Tests
 
         public ScreenshotControl screenshotControl;
         public string currentWorkingDirectory;
+        public string executionStartTime;
 
         [OneTimeSetUp]
         public void PreSetup()
         {
             currentWorkingDirectory = ConfigurationManager.AppSettings["currentWorkingDirectory"];
-
-            string reportPath = currentWorkingDirectory + ConfigurationManager.AppSettings["reportPath"];
+            executionStartTime = DatetTimeUtils.GetCurrentDateAndTime();
+            string reportPath = $"{currentWorkingDirectory}{ConfigurationManager.AppSettings["reportPath"]}/{executionStartTime}/";
             ExtentReport = new ExtentReportUtils(reportPath);
 
             
